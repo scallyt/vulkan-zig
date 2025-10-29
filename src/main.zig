@@ -102,7 +102,7 @@ pub fn main() !void {
     };
 
     const cwd = std.fs.cwd();
-    const xml_src = cwd.readFileAll(allocator, xml_path, std.math.maxInt(usize)) catch |err| {
+    const xml_src = cwd.readFileAlloc(allocator, xml_path, std.math.maxInt(usize)) catch |err| {
         std.process.fatal("failed to open input file '{s}' ({s})", .{ xml_path, @errorName(err) });
     };
 
