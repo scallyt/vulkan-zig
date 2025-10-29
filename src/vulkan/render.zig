@@ -1517,7 +1517,7 @@ const Renderer = struct {
             \\pub fn load({[params]s}) Self {{
             \\    var self: Self = .{{ .dispatch = .{{}} }};
             \\    inline for (std.meta.fields(Dispatch)) |field| {{
-            \\        if (loader({[first_arg]s}, field.name.ptr)) |cmd_ptr| {{
+            \\        if (loader.?({[first_arg]s}, field.name.ptr)) |cmd_ptr| {{
             \\            @field(self.dispatch, field.name) = @ptrCast(cmd_ptr);
             \\        }}
             \\    }}
